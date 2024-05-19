@@ -4,14 +4,14 @@ import { AppService } from './app.service';
 import { TasksGateway } from './tasks/tasks.gateway';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
-import { MongooseModule } from '@nestjs/mongoose';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    MongooseModule.forRoot(process.env.MONGODB_URI),
+    DatabaseModule,
     AuthModule,
   ],
   controllers: [AppController],
