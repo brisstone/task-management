@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { User, UserDocument } from './schemas/user.schema';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcryptjs';
@@ -13,6 +13,10 @@ export class AuthService {
   ) {}
 
   async register(username: string, password: string): Promise<User> {
+    const userExists = this.userModel.findOne({ username });
+    if (userExists) {
+      throw new BadRequestException('Username already taken');
+    }
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new this.userModel({ username, password: hashedPassword });
     return newUser.save();
