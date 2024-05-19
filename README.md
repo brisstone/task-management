@@ -52,6 +52,11 @@ npm >= 8.19.4
    ```bash
    npm start
    ```
+   use this for development [local machine]
+```bash
+   npm run start:dev
+   ```
+   
 
 ## API Endpoints
 
