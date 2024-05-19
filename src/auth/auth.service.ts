@@ -13,7 +13,7 @@ export class AuthService {
   ) {}
 
   async register(username: string, password: string): Promise<User> {
-    const userExists = this.userModel.findOne({ username });
+    const userExists = await this.userModel.findOne({ username });
     if (userExists) {
       throw new BadRequestException('Username already taken');
     }
