@@ -91,7 +91,7 @@ Tests are written using Jest. To run the tests, use the following command:
 ## Usage
 
 1. Ensure the API server is running.
-2. Use [Swagger UI](https://swagger.io/tools/swagger-ui/) to interact with the API endpoints using this route; [Documentation](http://localhost:3000/api)
+2. Use [Swagger UI](https://swagger.io/tools/swagger-ui/) to interact with the API endpoints using this route; Documentation: [http://localhost:3000/api](http://localhost:3000/api)
 3. Connect to the WebSocket server to receive real-time updates for tasks.
 
 ## Contributing
