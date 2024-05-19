@@ -76,4 +76,14 @@ export class TasksController {
   deleteTask(@Param('id') id: ObjectId) {
     return this.tasksService.deleteTask(id);
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('user/:id')
+  @ApiOperation({ summary: 'Get tasks by User Id' })
+  @ApiResponse({ status: 200, description: "Return all user's task" })
+  @ApiResponse({ status: 404, description: 'Task not found' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  findUserTasks(@Param('id') id: ObjectId) {
+    return this.tasksService.findUserTasks(id);
+  }
 }

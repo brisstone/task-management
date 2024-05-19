@@ -49,4 +49,12 @@ export class TasksService {
     this.tasksGateway.emitTaskDeleted(id);
     return task;
   }
+
+  async findUserTasks(id: ObjectId): Promise<Task[]> {
+    const tasks = await this.taskModel.find({ user: id }).exec();
+    if (!tasks) {
+      throw new NotFoundException(`Task with user id ${id} not found`);
+    }
+    return tasks;
+  }
 }
