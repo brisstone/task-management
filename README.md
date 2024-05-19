@@ -16,6 +16,12 @@ This is a RESTful API for managing tasks. It provides endpoints for user authent
 - [MongoDB](https://www.mongodb.com/): A NoSQL database for storing task data.
 - [JWT](https://jwt.io/): JSON Web Tokens for user authentication.
 - [Socket.IO](https://socket.io/): A library for real-time web applications using WebSockets.
+- [Jest](https://jestjs.io/): A delightful JavaScript testing framework.
+
+## Requirements
+Node.js >= 16.20.1
+npm >= 8.19.4
+
 
 ## Installation
 
@@ -69,10 +75,18 @@ Real-time updates for tasks are provided through WebSocket connections. The foll
 - `taskUpdated`: Emitted when a task is updated.
 - `taskDeleted`: Emitted when a task is deleted.
 
+## Tests
+
+Tests are written using Jest. To run the tests, use the following command:
+
+  ```bash
+   npm test
+   ```
+
 ## Usage
 
 1. Ensure the API server is running.
-2. Use tools like [Postman](https://www.postman.com/) or [Swagger UI](https://swagger.io/tools/swagger-ui/) to interact with the API endpoints.
+2. Use [Swagger UI](https://swagger.io/tools/swagger-ui/) to interact with the API endpoints using this route; [Documentation](http://localhost:3000/api)
 3. Connect to the WebSocket server to receive real-time updates for tasks.
 
 ## Contributing
