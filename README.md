@@ -1,73 +1,84 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# Task Management API
 
-## Description
+This is a RESTful API for managing tasks. It provides endpoints for user authentication, CRUD operations for tasks, and real-time data streaming using WebSockets.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Features
+
+- User Authentication with JWT tokens
+- CRUD Operations for tasks (Create, Read, Update, Delete)
+- Real-time data streaming for task events
+
+## Technologies Used
+
+- [Nest.js](https://nestjs.com/): A progressive Node.js framework for building efficient, reliable, and scalable server-side applications.
+- [MongoDB](https://www.mongodb.com/): A NoSQL database for storing task data.
+- [JWT](https://jwt.io/): JSON Web Tokens for user authentication.
+- [Socket.IO](https://socket.io/): A library for real-time web applications using WebSockets.
 
 ## Installation
 
-```bash
-$ npm install
-```
+1. Clone the repository:
 
-## Running the app
+   ```bash
+   git clone <repository-url>
+   ```
 
-```bash
-# development
-$ npm run start
+2. Install dependencies:
 
-# watch mode
-$ npm run start:dev
+   ```bash
+   npm install
+   ```
 
-# production mode
-$ npm run start:prod
-```
+3. Set up environment variables:
 
-## Test
+   Create a `.env` file in the root directory and configure the following environment variables:
 
-```bash
-# unit tests
-$ npm run test
+   ```
+   PORT=3000
+   MONGODB_URI=<mongodb-uri>
+   JWT_SECRET=<jwt-secret>
+   ```
 
-# e2e tests
-$ npm run test:e2e
+4. Start the server:
 
-# test coverage
-$ npm run test:cov
-```
+   ```bash
+   npm start
+   ```
 
-## Support
+## API Endpoints
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Authentication
 
-## Stay in touch
+- `POST /auth/login`: User login with username and password.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Tasks
+
+- `POST /tasks`: Create a new task.
+- `GET /tasks`: Get all tasks.
+- `GET /tasks/:id`: Get a task by ID.
+- `PATCH /tasks/:id`: Update a task by ID.
+- `DELETE /tasks/:id`: Delete a task by ID.
+
+## Real-time Data Streaming
+
+Real-time updates for tasks are provided through WebSocket connections. The following events are emitted:
+
+- `taskCreated`: Emitted when a new task is created.
+- `taskUpdated`: Emitted when a task is updated.
+- `taskDeleted`: Emitted when a task is deleted.
+
+## Usage
+
+1. Ensure the API server is running.
+2. Use tools like [Postman](https://www.postman.com/) or [Swagger UI](https://swagger.io/tools/swagger-ui/) to interact with the API endpoints.
+3. Connect to the WebSocket server to receive real-time updates for tasks.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

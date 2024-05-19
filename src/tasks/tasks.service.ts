@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, ObjectId } from 'mongoose';
-import { Task, TaskDocument } from 'src/schemas/task.schema';
+import { Task, TaskDocument } from '../schemas/task.schema';
 import { CreateTaskDto, UpdateTaskDto } from './dto/create-task.dto';
 import { TasksGateway } from './tasks.gateway';
 

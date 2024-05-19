@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigService } from '@nestjs/config';
-import { User, UserSchema } from 'src/schemas/user.schema';
-import { Task, TaskSchema } from 'src/schemas/task.schema';
+import { User, UserSchema } from '../schemas/user.schema';
+import { Task, TaskSchema } from '../schemas/task.schema';
 
 @Module({
   imports: [
