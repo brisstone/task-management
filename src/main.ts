@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
+import { CustomExceptionFilter } from './common/CustomExceptionFilter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -9,6 +10,10 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.setGlobalPrefix('api/v1');
 
+  //Cusom Error Handling
+  // app.useGlobalFilters(new CustomExceptionFilter());
+
+  //Swagger docs setup Integeration
   const config = new DocumentBuilder()
     .setTitle('Task Management API')
     .setDescription('API for managing tasks')
