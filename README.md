@@ -28,7 +28,7 @@ npm >= 8.19.4
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/brisstone/task-management
    ```
 
 2. Install dependencies:
