@@ -71,6 +71,7 @@ npm >= 8.19.4
 - `GET /tasks/:id`: Get a task by ID.
 - `PATCH /tasks/:id`: Update a task by ID.
 - `DELETE /tasks/:id`: Delete a task by ID.
+- `GET /tasks/user/:id`: Get a tasks by user ID.
 
 ## Real-time Data Streaming
 
