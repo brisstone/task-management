@@ -10,12 +10,12 @@ import { LocalStrategy } from './local.strategy';
 
 @Module({
   imports: [
-    PassportModule,
+    PassportModule.register({ session: false }),
     JwtModule.registerAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
         secret: configService.get<string>('JWT_SECRET'),
-        signOptions: { expiresIn: '60m' },
+        signOptions: { expiresIn: '24h' },
       }),
       inject: [ConfigService],
     }),

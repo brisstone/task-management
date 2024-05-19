@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigService } from '@nestjs/config';
 import { User, UserSchema } from 'src/schemas/user.schema';
+import { Task, TaskSchema } from 'src/schemas/task.schema';
 
 @Module({
   imports: [
@@ -11,7 +12,10 @@ import { User, UserSchema } from 'src/schemas/user.schema';
         uri: configService.get<string>('MONGODB_URI'),
       }),
     }),
-    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    MongooseModule.forFeature([
+      { name: User.name, schema: UserSchema },
+      { name: Task.name, schema: TaskSchema },
+    ]),
   ],
   exports: [MongooseModule],
 })
